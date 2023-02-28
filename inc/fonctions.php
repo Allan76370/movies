@@ -48,3 +48,12 @@ function adressData($valeur)
     return $valeur;
 }
 
+function getMovieLimit($valeur)
+{
+    global $conn;
+    // $sqlRequest = "SELECT * FROM movies_full WHERE title like '%vadrouille%'";
+    $sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT " . $valeur;
+    $resultat = $conn->prepare($sqlRequest);
+    $resultat->execute();
+    return $resultat->fetchAll();
+}

@@ -4,21 +4,21 @@ require './inc/fonctions.php';
 require './inc/pdo.php';
 
 // $sqlRequest = "SELECT * FROM movies_full WHERE title like '%vadrouille%'";
-$sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT 0,30";
+// $sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT 0,30";
+// $resultat = $conn->prepare($sqlRequest);
+// $resultat->execute();
+// $films = $resultat->fetchAll();
+// MIS EN FONCTION !!!!
 
 
-$resultat = $conn->prepare($sqlRequest);
-$resultat->execute();
-$films = $resultat->fetchAll();
+// dd(getMovieLimit(2));
 
-//dd($films);
-
-if (count($films) == 0) {
+if (count(getMovieLimit(2)) == 0) {
     echo 'aucun résultat';
 } else {
     echo '<div>';
     $i = 1;
-    foreach ($films as $key => $value) {
+    foreach (getMovieLimit(2) as $key => $value) {
         echo 'Film n°' . $i . '<br>';
         echo 'Titre: ' . $value['title'] . '<br>';
         echo 'Genre: ' . $value['genres'] . '<br>';
