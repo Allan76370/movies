@@ -7,7 +7,7 @@ require './partials/header.php';
 
 // dd($_GET);
 
-if (isset($_GET['id']) && !is_int($_GET['id'])) :
+if (isset($_GET['id']) && is_numeric($_GET['id'])) :
     $id = $_GET['id'];
 
 else: 
