@@ -52,8 +52,9 @@ function getMovieLimit($valeur)
 {
     global $conn;
     // $sqlRequest = "SELECT * FROM movies_full WHERE title like '%vadrouille%'";
-    $sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT " . $valeur;
+    $sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT :limite";
     $resultat = $conn->prepare($sqlRequest);
+    $resultat->bindValue(':limite', $valeur, PDO::PARAM_INT);
     $resultat->execute();
     return $resultat->fetchAll();
 }
