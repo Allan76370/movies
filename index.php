@@ -2,7 +2,7 @@
 // Lister les films
 require './inc/fonctions.php';
 require './inc/pdo.php';
-require './inc/view/index.view.php';
+require './view/index.view.php';
 
 // $sqlRequest = "SELECT * FROM movies_full WHERE title like '%vadrouille%'";
 // $sqlRequest = "SELECT * FROM movies_full WHERE title LIMIT 0,30";

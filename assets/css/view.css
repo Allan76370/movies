@@ -1,0 +1,39 @@
+:root {
+    --btn-font-size:1rem;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#table,
+.dashboard {
+    background-color: aqua;
+}
+
+.dashboard {
+    width: 100%;
+}
+.dashboard table{
+    border-collapse: collapse;
+}
+.dashboard td {
+    width: 20%;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid black;
+    
+}
+
+.btn {
+    padding-top: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    font-size: var(--btn-font-size);
+    font-weight: 400;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+    cursor: pointer;
+}

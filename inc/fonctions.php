@@ -58,3 +58,14 @@ function getMovieLimit($valeur)
     $resultat->execute();
     return $resultat->fetchAll();
 }
+
+function getOnMovie($valeur)
+{
+    global $conn;
+    // $sqlRequest = "SELECT * FROM movies_full WHERE title like '%vadrouille%'";
+    $sqlRequest = "SELECT * FROM `movies_full` WHERE id = :valeur";
+    $resultat = $conn->prepare($sqlRequest);
+    $resultat->bindValue(':valeur', $valeur, PDO::PARAM_INT);
+    $resultat->execute();
+    return $resultat->fetchAll();
+}
