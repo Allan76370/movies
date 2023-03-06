@@ -1,11 +1,35 @@
 :root {
-    --btn-font-size:1rem;
+    --btn-font-size: 1rem;
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: sans-serif;
+    color: brown;
+    padding: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+.header {
+    display: flex;
+    vertical-align: center;
+    justify-content: space-between;
+}
+
+
 #table,
 .dashboard {
     background-color: aqua;
@@ -14,15 +38,17 @@
 .dashboard {
     width: 100%;
 }
-.dashboard table{
+
+.dashboard table {
     border-collapse: collapse;
 }
+
 .dashboard td {
     width: 20%;
     text-align: center;
     padding: 1rem;
     border: 1px solid black;
-    
+
 }
 
 .btn {

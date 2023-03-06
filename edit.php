@@ -17,3 +17,4 @@ endif;
 dd(getOnMovie($id));
 
 require './partials/footer.php';
+?>

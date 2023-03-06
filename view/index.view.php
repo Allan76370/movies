@@ -7,7 +7,7 @@ require './partials/header.php';
         <p><a href="./dashboard.php">Admin</a></p>
         <?=
         $i = 1;
-        foreach (getMovieLimit(2) as $key => $value) {
+        foreach (getMovieLimit(8) as $key => $value) {
         ?>
             <?= 'Film n°' . $i . '<br>'; ?>
             <?= 'Titre: ' . $value['title'] . '<br>'; ?>

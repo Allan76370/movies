@@ -69,3 +69,4 @@ function getOnMovie($valeur)
     $resultat->execute();
     return $resultat->fetchAll();
 }
+?>
