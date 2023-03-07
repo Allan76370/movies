@@ -1,9 +1,9 @@
 <?php
 
 define('HOST', 'localhost');
-$dbName = 'netflix';
-$userDbName = 'allan';
-$userDbPassword = 'allan';
+$dbName = 'videotheque';
+$userDbName = 'root';
+$userDbPassword = '';
 
 try {
     $conn = new PDO('mysql:host=' . HOST . ';dbname=' . $dbName, $userDbName, $userDbPassword, array(

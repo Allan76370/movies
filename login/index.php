@@ -43,7 +43,7 @@ endif;
         <input type="email" name="email" id="email">
     </div>
     <div>
-        <label for="pwq">Mot de passe</label>
+        <label for="pwd">Mot de passe</label>
         <input type="password" name="pwd" id="pwd">
     </div>
     <div>
