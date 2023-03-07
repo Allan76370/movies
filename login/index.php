@@ -8,24 +8,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
 $email = htmlentities(trim($_POST['email']));
 $pwd = trim($_POST['pwd']);
 
-    $requete = 'SELECT * FROM user WHERE email = :email';
+    $requete = 'SELECT * FROM users WHERE email = :email';
     $resultat = $conn->prepare($requete);
     $resultat->bindValue(':email' , $email, PDO::PARAM_STR);
     $resultat->execute();
-    $resultatEmail = $resultat->fetchAll();
-
+    $resultatEmail = $resultat->fetch();
+    
 
     if(!$resultatEmail) : 
-        echo 'Votre email n\'est pas enregistré comme utilisateur de notre site.';
+        echo 'Vos données ne sont pas enregistré comme utilisateur de notre site.';
         exit();
     else:
-        // if(password_verify($pwd, $resultatEmail['pwd'])) :
+        if(password_verify($pwd, $resultatEmail['pwd'])) :
         $_SESSION['login'] = true;
-            header('Location: http://localhost/movies/');
+            header('Location: http://localhost/sql/movies/');
             exit();
-        // else: 
-            // echo 'Le mot de passe est non valide.';
-        // endif;
+        else: 
+         echo 'Le mot de passe est non valide.';
+         echo '<br>';
+         echo 'Le mot de passe haché stocké en base de données est: ' . $resultatEmail['pwd'];
+         echo '<br>';
+         echo 'Le mot de passe que vous avez entré haché est: ' . password_hash($pwd, PASSWORD_DEFAULT);
+        endif;
     endif;
 endif;
 

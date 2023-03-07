@@ -1,22 +1,24 @@
 <?php
 session_start();
 
-require '../inc/fonctions.php';
 require '../inc/pdo.php';
+require '../inc/fonctions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $email = htmlentities(trim($_POST['email']));
     $login = htmlentities(trim($_POST['login']));
     $pwd = trim($_POST['pwd']);
+    $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare('INSERT INTO users (login, email, pwd) VALUES (:nom, :email, :pwd)');
-    $stmt->execute(array(
-        'login' => $login,
-        'email' => $email,
-        'pwd' => $pwd,
-    ));
 
-   echo 'Enregistrement réussi.';
+    $stmt = 'INSERT INTO users (login, email, pwd) VALUES (:login, :email, :pwd)';
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindValue(':login', $login, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':pwd', $hashed_pwd, PDO::PARAM_STR);
+    $stmt->execute();
+
+
 endif;
 
 
@@ -44,7 +46,7 @@ endif;
             <input type="email" name="email" id="email">
         </div>
         <div>
-            <label for="pwq">Mot de passe</label>
+            <label for="pwd">Mot de passe</label>
             <input type="password" name="pwd" id="pwd">
         </div>
         <div>
