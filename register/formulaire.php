@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 
-    $stmt = 'INSERT INTO users (login, email, pwd) VALUES (:login, :email, :pwd)';
+    $stmt = 'INSERT INTO users (login, email, pwd, created_at) VALUES (:login, :email, :pwd, NOW())';
     $stmt = $conn->prepare($stmt);
     $stmt->bindValue(':login', $login, PDO::PARAM_STR);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);

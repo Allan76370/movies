@@ -25,10 +25,10 @@ $pwd = trim($_POST['pwd']);
             exit();
         else: 
          echo 'Le mot de passe est non valide.';
-         echo '<br>';
-         echo 'Le mot de passe haché stocké en base de données est: ' . $resultatEmail['pwd'];
-         echo '<br>';
-         echo 'Le mot de passe que vous avez entré haché est: ' . password_hash($pwd, PASSWORD_DEFAULT);
+        //  echo '<br>';
+        //  echo 'Le mot de passe haché stocké en base de données est: ' . $resultatEmail['pwd'];
+        //  echo '<br>';
+        //  echo 'Le mot de passe que vous avez entré haché est: ' . password_hash($pwd, PASSWORD_DEFAULT);
         endif;
     endif;
 endif;
