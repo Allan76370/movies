@@ -6,7 +6,6 @@ require './partials/header.php';
 
 ?>
 
-<?php include './partials/header.php'; ?>
 <div class="dashboard">
     <table>
         <thead>
@@ -20,7 +19,7 @@ require './partials/header.php';
         </thead>
         <tbody>
             <?php
-            foreach (getMovieLimit(8) as $key => $value) {
+            foreach (getMovieLimit(10) as $key => $value) {
             ?>
                 <tr>
                     <td><?= $value['id'] ?></td>
